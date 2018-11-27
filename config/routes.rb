@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get '/terms', to: 'home#terms'
   resources :notifications, only: [:index]
   resources :announcements, only: [:index]
+  resources :articles
   authenticate :user, lambda { |u| u.admin? } do
     mount Sidekiq::Web => '/sidekiq'
   end
