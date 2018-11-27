@@ -7,4 +7,9 @@ class User < ApplicationRecord
 
   has_many :notifications, foreign_key: :recipient_id
   has_many :services
+  has_many :articles
+
+  def full_name
+    self.first_name.to_s + ' ' + self.last_name.to_s
+  end
 end
